@@ -4,6 +4,8 @@ export const Header = styled.h2`
     text-transform: capitalize;
     font-size: 50px;
     margin: 0;
+    padding: 0 10px;
+    text-align: center;
 
     @media (max-width: 767px) {
         font-size: 26px;
@@ -14,6 +16,7 @@ export const Header = styled.h2`
 
         @media (max-width: 767px) {
             font-size: 14px;
+
         }
     `}
 
