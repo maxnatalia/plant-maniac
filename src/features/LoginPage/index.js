@@ -42,12 +42,12 @@ const LoginPage = () => {
                             placeholder="Your name..."
                             value={name}
                             onChange={(e) => setName(e.target.value)} />
-                        <Button as="button" type="submit" >Add your name</Button>
-                        <Button as="button" type="button" onClick={() => mainData.setMessage(`Jesteś zalogowany jako - Guest`)}>
+                        <Button type="submit" >Add your name</Button>
+                        <Button type="button" onClick={() => mainData.setMessage(`Jesteś zalogowany jako - Guest`)}>
                             Log In as a Guest
                         </Button>
                         {mainData.message !== "you're not logged in" &&
-                            <Button as="button" onClick={() => mainData.setMessage("you're not logged in")}
+                            <Button onClick={() => mainData.setMessage("you're not logged in")}
                             >
                                 Log Out
                             </Button>}
