@@ -5,6 +5,6 @@ export const Section = styled.section`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     position: relative;
 `;
