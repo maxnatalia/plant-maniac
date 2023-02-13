@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useUserContext } from "../../context/loginContext";
 import { links } from "./data";
-import { StyledNavigation, NavLinksWrapper, StyledLink, BasketWrapper, BasketIcon, TotalBasket, LinkWrapper, LoginIcon, LoginText, MobileOpen, MobileClose } from "./styled";
+import { StyledNavigation, NavLinksWrapper, StyledLink, NavLinkItem, BasketWrapper, BasketIcon, TotalBasket, LoginWrapper, LoginIcon, LoginText, MobileOpen, MobileClose } from "./styled";
 import Logo from "../Logo";
 
 const Navigation = () => {
@@ -13,14 +13,14 @@ const Navigation = () => {
             <Logo />
             <NavLinksWrapper openNav={openNav}>
                 {links.map(({ id, text, path }) => {
-                    return <li key={id} >
+                    return <NavLinkItem key={id} >
                         <StyledLink
                             to={path}
                             onClick={() => setOpenNav(false)}
                         >
                             {text}
                         </StyledLink>
-                    </li>
+                    </NavLinkItem>
                 })}
             </NavLinksWrapper>
             <BasketWrapper>
@@ -28,15 +28,15 @@ const Navigation = () => {
                 <TotalBasket>12</TotalBasket>
             </BasketWrapper>
             {mainData.message === `Aktualnie nie jesteś zalogowany` ?
-                <LinkWrapper to="/login">
+                <LoginWrapper to="/login">
                     <LoginIcon />
                     <LoginText>Log In</LoginText>
-                </LinkWrapper>
+                </LoginWrapper>
                 :
-                <LinkWrapper to="/login">
+                <LoginWrapper to="/login">
                     <LoginIcon />
                     <LoginText>Log Out</LoginText>
-                </LinkWrapper>}
+                </LoginWrapper>}
             <div onClick={() => setOpenNav(!openNav)}>
                 {openNav ?
                     <MobileClose /> :
