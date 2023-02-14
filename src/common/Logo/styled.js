@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const LogoWrapper = styled(Link)`
     display: flex;
@@ -11,6 +11,7 @@ export const LogoWrapper = styled(Link)`
     color: inherit;
     transition: all 1s ease-in-out;
     cursor: pointer;
+    z-index: 10;
 
     &:hover {
         filter: brightness(140%);
@@ -23,7 +24,7 @@ export const StyledLogo = styled.img`
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
         width: 30px;
     }
 `;
