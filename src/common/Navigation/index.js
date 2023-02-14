@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useUserContext } from "../../context/loginContext";
 import { links } from "./data";
-import { StyledNavigation, NavLinksWrapper, StyledLink, NavLinkItem, BasketWrapper, BasketIcon, TotalBasket, LoginWrapper, LoginIcon, LoginText, MobileOpen, MobileClose } from "./styled";
+import { StyledNavigation, NavLinksWrapper, StyledLink, BasketWrapper, BasketIcon, TotalBasket, LoginWrapper, LoginIcon, LoginText, Span, MobileOpen, MobileClose } from "./styled";
 import Logo from "../Logo";
 
 const Navigation = () => {
@@ -10,30 +10,29 @@ const Navigation = () => {
 
     return (
         <StyledNavigation>
-            <Logo />
+            <Logo setOpenNav={setOpenNav} />
             <NavLinksWrapper openNav={openNav}>
                 {links.map(({ id, text, path }) => {
-                    return <NavLinkItem key={id} >
-                        <StyledLink
-                            to={path}
-                            onClick={() => setOpenNav(false)}
-                        >
-                            {text}
-                        </StyledLink>
-                    </NavLinkItem>
+                    return <StyledLink
+                        key={id}
+                        to={path}
+                        onClick={() => setOpenNav(false)}
+                    >
+                        <Span>{text}</Span>
+                    </StyledLink>
                 })}
             </NavLinksWrapper>
             <BasketWrapper>
                 <BasketIcon />
                 <TotalBasket>12</TotalBasket>
             </BasketWrapper>
-            {mainData.message === `Aktualnie nie jesteś zalogowany` ?
-                <LoginWrapper to="/login">
+            {mainData.message === `you're not logged in` ?
+                <LoginWrapper onClick={() => setOpenNav(false)} to="/login">
                     <LoginIcon />
                     <LoginText>Log In</LoginText>
                 </LoginWrapper>
                 :
-                <LoginWrapper to="/login">
+                <LoginWrapper onClick={() => setOpenNav(false)} to="/login">
                     <LoginIcon />
                     <LoginText>Log Out</LoginText>
                 </LoginWrapper>}
