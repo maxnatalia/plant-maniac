@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AiOutlineBars } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
 import { SlBasket } from "react-icons/sl";
@@ -12,18 +12,20 @@ export const StyledNavigation = styled.nav`
     align-items: center;
     gap: 10px;
     position: relative;
+    background-color: ${({ theme }) => theme.colors.light};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.dark};
+    position: sticky;
+    top:0;
+    left:0;
+    z-index: 10;
 `;
 
-export const NavLinksWrapper = styled.ul`
+export const NavLinksWrapper = styled.div`
     flex: 1;
     height: 100%;
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
     display: flex;
     justify-content: space-around;
-    align-items: center;
-
+    
     @media (max-width: 992px) {
         opacity: ${({ openNav }) => openNav ? "1" : "0"};      
         visibility: ${({ openNav }) => openNav ? "visible" : "hidden"};
@@ -33,21 +35,25 @@ export const NavLinksWrapper = styled.ul`
         right: 0;
         left: 0;
         bottom: 0;
-        z-index: 10;
-        height: 100vh;
-        width: 100%;
-        background-color: red;
+        z-index: 9;
+        height: 100%;
+        padding-top: 90px;
+        align-self: stretch;
+        background-color: ${({ theme }) => theme.colors.light};
     }   
 `;
 
-export const NavLinkItem = styled.li`
-    cursor: pointer;
-    position: relative;
-    height: 100%;
-    width: 100%;
+export const StyledLink = styled(NavLink)`
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    padding: 20px 40px;
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
 
     &::before {
         content: "";
@@ -58,29 +64,16 @@ export const NavLinkItem = styled.li`
         width: 4px;
         height: 100%;
         transform: scaleY(0);
-        transition: transform .2s,
+        transition: transform .2s,                     
                     width .4s cubic-bezier(1,0,0,1) .2s,
-                    background-color .1s;
+                    background-color .1s;     
     }
 
     &:hover::before {
         transform: scaleY(1);
         border-left: 4px solid ${({ theme }) => theme.colors.dark};
         width: 100%;
-    }
-`;
-
-export const StyledLink = styled(NavLink)`
-    color: inherit;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    position: relative;
-    z-index: 10;
+     }
 
     &.active {
         font-weight: 900;
@@ -90,6 +83,7 @@ export const StyledLink = styled(NavLink)`
 export const BasketWrapper = styled.div`
     position: relative;
     margin-right: 14px;
+    z-index: 10;
 `;
 
 export const BasketIcon = styled(SlBasket)`
@@ -113,7 +107,7 @@ export const TotalBasket = styled.span`
     align-items: center;
 `;
 
-export const LoginWrapper = styled(Link)`
+export const LoginWrapper = styled(NavLink)`
     padding: 10px;
     height: 100%;
     display: flex;
@@ -121,13 +115,32 @@ export const LoginWrapper = styled(Link)`
     color: inherit;
     text-decoration: none;
     text-transform: capitalize;
-    border-bottom: 4px solid transparent;
     cursor: pointer;
-    transition: all .8s ease-in-out;
+    position: relative;
+    z-index: 10;
 
-    &:hover {
-        border-bottom: 4px solid ${({ theme }) => theme.colors.dark};
+    @media (max-width: 767px) {
+        font-size: 14px;
+    }
+    
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
         background-color: ${({ theme }) => theme.colors.primary};
+        width: 100%;
+        height: 4px;
+        transform: scaleX(0);
+        transition: transform .2s,
+                    height .4s cubic-bezier(1,0,0,1) .2s,
+                    background-color .1s;
+    }
+
+    &:hover::before {
+        transform: scaleX(1);
+        border-bottom: 4px solid ${({ theme }) => theme.colors.dark};
+        height: 100%;
     }
 `;
 
@@ -135,11 +148,20 @@ export const LoginIcon = styled(BsFillPersonFill)`
     width: 30px;
     height: 30px;
     fill: currentColor;
+    position: relative;
+    z-index: 10;
 `;
 
 export const LoginText = styled.p`
     margin:0;
     width: 80px;
+    position: relative;
+    z-index: 10;
+`;
+
+export const Span = styled.span`
+    position: relative;
+    z-index: 10;
 `;
 
 export const MobileClose = styled(AiOutlineClose)`
@@ -157,7 +179,7 @@ export const MobileClose = styled(AiOutlineClose)`
         z-index: 10;
 
         &:hover {
-            transform: rotate(180deg) scale(1.3);
+            transform: rotate(180deg);
         }
     }
 `;
