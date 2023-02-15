@@ -11,7 +11,7 @@ export const LogoWrapper = styled(Link)`
     color: inherit;
     transition: all 1s ease-in-out;
     cursor: pointer;
-    z-index: 10;
+    z-index: 9;
 
     &:hover {
         filter: brightness(140%);
