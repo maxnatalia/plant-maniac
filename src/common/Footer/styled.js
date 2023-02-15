@@ -62,7 +62,7 @@ export const Item = styled(Link)`
 
     &:hover,
     &:active {
-        font-weight: 900;
+        filter: brightness(110%);
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
         transform: rotate(5deg) scale(1.3);
     }
