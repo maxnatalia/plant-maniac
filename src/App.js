@@ -6,6 +6,7 @@ import Navigation from "./common/Navigation";
 import Footer from "./common/Footer";
 import LoginPage from "./features/LoginPage";
 import ProductsPage from "./features/ProductsPage";
+import Newsletter from "./common/Newsletter";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Newsletter />
       <Footer />
     </HashRouter>
   );
