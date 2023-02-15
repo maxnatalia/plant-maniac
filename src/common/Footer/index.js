@@ -1,32 +1,27 @@
-import { StyledFooter, Wrapper, Container, IconFace, IconInsta, IconMail, Item } from "./styled";
-import { ButtonLink } from "../../common/styles/ButtonLink"
-import { Header } from "../../common/styles/Header";
+import { StyledFooter, Wrapper, Container, Icon, Item } from "./styled";
+import { Paragraph } from "../../common/styles/Paragraph";
 import Logo from "../Logo";
-
+import { BsFacebook } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
+import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
     return (
         <StyledFooter>
             <Wrapper>
-                <div>
-                    <Logo />
-                    <Container>
-                        <IconFace />
-                        <IconInsta />
-                        <IconMail />
-                    </Container>
-                </div>
-                <Container links>
+                <Container items>
                     <Item>contact</Item>
                     <Item>about</Item>
                     <Item>blog & tips</Item>
                 </Container>
+                <Container>
+                    <Logo />
+                    <Icon><BsFacebook /></Icon>
+                    <Icon><BsInstagram /></Icon>
+                    <Icon><FiMail /></Icon>
+                </Container>
             </Wrapper>
-            <Header small>plant maniac &copy; {new Date().getFullYear()} all rights reserved</Header>
-
-
-            {/* <ButtonLink to="/about">suscribe</ButtonLink> */}
-
+            <Paragraph>Plant Maniac &copy; {new Date().getFullYear()} All Rights Reserved</Paragraph>
         </StyledFooter>
     )
 }
