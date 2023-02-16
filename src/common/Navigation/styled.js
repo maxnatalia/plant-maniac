@@ -201,3 +201,14 @@ export const MobileOpen = styled(AiOutlineBars)`
         }
     }
 `;
+
+export const PopUp = styled.div`
+    padding: 20px 30px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: ${({ theme }) => theme.colors.dark};
+    font-weight: 900;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    z-index: 10;
+`;
