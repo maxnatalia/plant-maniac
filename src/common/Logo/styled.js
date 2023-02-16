@@ -6,7 +6,7 @@ export const LogoWrapper = styled(Link)`
     align-items: center;
     gap: 5px;
     margin: 10px;
-    width: 300px;
+    min-width: 300px;
     text-decoration: none;
     color: inherit;
     transition: all 1s ease-in-out;
@@ -16,6 +16,10 @@ export const LogoWrapper = styled(Link)`
     &:hover {
         filter: brightness(140%);
         letter-spacing: 2px;
+    }
+
+    @media (max-width: 767px) {
+        min-width: 180px;
     }
 `;
 
