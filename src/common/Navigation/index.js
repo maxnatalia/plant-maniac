@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useUserContext } from "../../context/loginContext";
 import { links } from "./data";
-import { StyledNavigation, NavLinksWrapper, StyledLink, BasketWrapper, BasketIcon, TotalBasket, LoginWrapper, LoginIcon, LoginText, Span, MobileOpen, MobileClose } from "./styled";
+import { StyledNavigation, NavLinksWrapper, StyledLink, BasketWrapper, BasketIcon, TotalBasket, LoginWrapper, LoginIcon, LoginText, Span, MobileOpen, MobileClose, PopUp } from "./styled";
 import Logo from "../Logo";
 
 const Navigation = () => {
@@ -26,7 +26,7 @@ const Navigation = () => {
                 <BasketIcon />
                 <TotalBasket>12</TotalBasket>
             </BasketWrapper>
-            {mainData.message === `you're not logged in` ?
+            {mainData.message === `LOG IN 🪴` ?
                 <LoginWrapper onClick={() => setOpenNav(false)} to="/login">
                     <LoginIcon />
                     <LoginText>Log In</LoginText>
@@ -42,6 +42,10 @@ const Navigation = () => {
                     <MobileOpen />
                 }
             </div>
+            {mainData.message !== "LOG IN 🪴" &&
+                <PopUp>
+                    {mainData.message}
+                </PopUp>}
         </StyledNavigation>
     )
 }
