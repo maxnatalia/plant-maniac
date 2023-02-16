@@ -1,8 +1,9 @@
-import { useContext, useState, useEffect, createContext } from 'react'
+import { useContext, useState, createContext } from 'react'
 
 const LoginContext = createContext()
 export const LoginProvider = ({ children }) => {
-    const [message, setMessage] = useState("you're not logged in");
+
+    const [message, setMessage] = useState("LOG IN 🪴");
     return (
         <LoginContext.Provider value={{ message, setMessage }}>
             {children}
