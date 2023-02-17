@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -44,6 +44,10 @@ export const Input = styled.input`
     border: 1px solid ${({ theme }) => theme.colors.dark};
     box-shadow:  0px 19px 38px rgba(0, 0, 0, 0.3);
     background-color: transparent;
+
+    ${({ error }) => error && css`
+        border: 2px solid crimson;
+    `}
 `;
 
 export const SubmitButton = styled.button`
@@ -66,4 +70,19 @@ export const SubmitButton = styled.button`
     @media (max-width: 767px) {
         width: 100%;
     }
+`;
+
+export const MsgSuscribe = styled.div`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    color: ${({ theme }) => theme.colors.dark};
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right bottom, ${({ theme }) => theme.colors.light}, ${({ theme }) => theme.colors.primary});
+    height: 70%;
+    z-index: 10;
 `;
