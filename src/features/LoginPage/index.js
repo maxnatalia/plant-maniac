@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useUserContext } from "../../context/loginContext.js";
 import { Button } from "../../common/styles/Button";
 import { Section } from "../../common/styles/Section";
-import { LoginWrapper, Form, Input, PopUpWrapper, ErrorWrapper } from "./styled.js";
+import { Paragraph } from "../../common/styles/Paragraph";
+import { LoginWrapper, Form, Input, ErrorWrapper, ErrorMsg } from "./styled.js";
 import HeroWrapper from "../../common/HeroWrapper/index.js";
 
 const LoginPage = () => {
@@ -22,10 +23,10 @@ const LoginPage = () => {
         e.preventDefault();
         if (!name) {
             setError(true);
-            mainData.setMessage(`Jesteś zalogowany jako - Guest`);
+            mainData.setMessage(`Welcome, Guest`);
         }
         if (name) {
-            mainData.setMessage(`Jesteś zalogowany jako - ${name}`);
+            mainData.setMessage(`Welcome, ${name}`);
             setName('');
         }
     }
@@ -35,7 +36,7 @@ const LoginPage = () => {
             <HeroWrapper title={mainData.message} />
             <Section>
                 <LoginWrapper>
-                    <p>You can log in, otherwise you will be logged in as a Guest</p>
+                    <Paragraph>You can log in, otherwise you will be logged in as a Guest.<br />Please provide your name.</Paragraph>
                     <Form onSubmit={onFormSubmit}>
                         <Input
                             type='text'
@@ -43,11 +44,11 @@ const LoginPage = () => {
                             value={name}
                             onChange={(e) => setName(e.target.value)} />
                         <Button type="submit" >Add your name</Button>
-                        <Button type="button" onClick={() => mainData.setMessage(`Jesteś zalogowany jako - Guest`)}>
+                        <Button type="button" onClick={() => mainData.setMessage(`Welcome, Guest`)}>
                             Log In as a Guest
                         </Button>
-                        {mainData.message !== "you're not logged in" &&
-                            <Button onClick={() => mainData.setMessage("you're not logged in")}
+                        {mainData.message !== "LOG IN 🪴" &&
+                            <Button onClick={() => mainData.setMessage("LOG IN 🪴")}
                             >
                                 Log Out
                             </Button>}
@@ -55,11 +56,8 @@ const LoginPage = () => {
                 </LoginWrapper>
                 {error &&
                     <ErrorWrapper>
-                        <h4>You don't provide your name - you are log in as a Guest</h4>
+                        <ErrorMsg>You don't provide your name<br />You are log in as a Guest</ErrorMsg>
                     </ErrorWrapper>}
-                {/* <PopUpWrapper activePop={activePop}>
-                    <p>Welcome {activePop}, you are logged 🌺</p>
-                </PopUpWrapper> */}
             </Section>
         </>
     )
