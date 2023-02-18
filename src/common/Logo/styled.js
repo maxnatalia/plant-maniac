@@ -1,25 +1,19 @@
 import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const LogoWrapper = styled(Link)`
     display: flex;
     align-items: center;
     gap: 5px;
     margin: 10px;
-    min-width: 300px;
     text-decoration: none;
     color: inherit;
-    transition: all 1s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
     z-index: 9;
 
     &:hover {
-        filter: brightness(140%);
-        letter-spacing: 2px;
-    }
-
-    @media (max-width: 767px) {
-        min-width: 180px;
+        filter: brightness(180%);
     }
 `;
 

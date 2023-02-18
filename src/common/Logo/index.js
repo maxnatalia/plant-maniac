@@ -6,7 +6,7 @@ const Logo = ({ setOpenNav }) => {
     return (
         <LogoWrapper onClick={() => setOpenNav(false)} to="/">
             <StyledLogo src={logo} alt="logo" />
-            <Header small>Plant Maniac</Header>
+            <Header small nav>Plant Maniac</Header>
         </LogoWrapper>
     )
 }
