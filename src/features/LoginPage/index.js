@@ -3,6 +3,7 @@ import { useUserContext } from "../../context/loginContext.js";
 import { Button } from "../../common/styles/Button";
 import { Section } from "../../common/styles/Section";
 import { Paragraph } from "../../common/styles/Paragraph";
+import { Header } from "../../common/styles/Header.js";
 import { LoginWrapper, Form, Input, ErrorWrapper, ErrorMsg } from "./styled.js";
 import HeroWrapper from "../../common/HeroWrapper/index.js";
 
@@ -33,8 +34,9 @@ const LoginPage = () => {
 
     return (
         <>
-            <HeroWrapper title={mainData.message} />
+            <HeroWrapper />
             <Section>
+                <Header>Login</Header>
                 <LoginWrapper>
                     <Paragraph>You can log in, otherwise you will be logged in as a Guest.<br />Please provide your name.</Paragraph>
                     <Form onSubmit={onFormSubmit}>
