@@ -16,6 +16,16 @@ export const ItemContainer = styled.div`
     grid-template-columns: min-content 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 10px;
+    align-content: flex-start;
+    justify-items: center;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+    border-right: 1px solid ${({ theme }) => theme.colors.primary};
+    transition: all .3s ease-in-out;
+    cursor: default;
+
+    &:hover :first-child {
+        transform: scale(1.7);
+    }
 `;
 
 export const Icon = styled(GiPlantSeed)`
