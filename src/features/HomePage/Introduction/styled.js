@@ -1,18 +1,22 @@
 import styled, { css } from "styled-components";
-import background from "./background.jpg";
+
+export const SectionIntro = styled.section`
+    max-width: 1400px;
+    height: 70%;
+    margin: 15px auto;
+`;
 
 export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    padding: 20px;
  
     @media (max-width: 1200px) {
         flex-direction: column-reverse;
-        height: auto;
+        gap: 0;
     }
 `;
 
@@ -22,7 +26,6 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 50%;
-    height: 70%;
     
     @media (max-width: 1200px) {
         width: 100%;
@@ -31,69 +34,54 @@ export const Wrapper = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-    position: relative;
-    width: 50vw;
-    height: 36vh;
-    margin: 0 auto;
+    width: 50%;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 20px;
+    align-content: center;
+    justify-content: center;
 
     @media (max-width: 1200px) {
-       height: 50vh;
+       width: 100%;
     }
 `;
 
 export const Image = styled.img`
     object-fit: cover;
+    width: 100%;
+    z-index: 8;
+    outline-offset: 10px;
     box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.3);
     border-radius: 2px;
-    position: absolute;
-    z-index: 10;
     transition: all .2s;
-    outline-offset: 10px;
-    width: 20vw;
+    cursor: pointer;
 
     ${({ photoOne }) => photoOne && css`
-        left: 0;
-        top: -5px;
+       grid-column: 1 / span 2;
+       grid-row: 1 / span 3;
     `}
 
     ${({ photoTwo }) => photoTwo && css`
-        right: 10px;
-        top: 30px;
+        grid-column: 2 / span 2;
+        grid-row:  3 / span 3;
     `}
 
     ${({ photoThree }) => photoThree && css`
-        left: 30%;
-        top: 100px;
+        grid-column: 3 / span 2;
+        grid-row:  2 / span 3;
     `}
-`;
 
-export const ArticleWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-    padding: 20px;
-    margin: 40px auto;
-    text-align: center;
-    gap: 20px;
-`;
+    &:hover {
+        outline: 10px solid ${({ theme }) => theme.colors.primary};
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.5);
+        z-index: 9;
+    }
 
-export const Article = styled.article`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 20px;
-    width: 300px;
-    border: 2px solid ${({ theme }) => theme.colors.primary};
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    background-blend-mode: screen;
-    background-image: linear-gradient(to right bottom, ${({ theme }) => theme.colors.light}, ${({ theme }) => theme.colors.primary}), url("${background}");
-    background-size: cover;
-    filter: contrast(95%);
-`;
-
-export const IconSpan = styled.div`
-    font-size: 60px;;
+    &:not(:hover) {
+        opacity: .7;
+        transform: scale(.90);
+    }
 `;
