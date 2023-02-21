@@ -1,17 +1,14 @@
 import { Header } from "../../../common/styles/Header";
 import { Paragraph } from "../../../common/styles/Paragraph";
-import { Section } from "../../../common/styles/Section";
-import { ButtonLink } from "../../../common/styles/ButtonLink";
-import { data } from "./data";
-import { Container, ImageWrapper, Image, Wrapper, ArticleWrapper, Article, IconSpan } from "./styled.js";
-import plant1 from "./plant-one.jpg";
-import plant2 from "./plant-two.jpg";
-import plant3 from "./plant-three.jpg";
 import Logo from "../../../common/Logo";
+import { SectionIntro, Container, Wrapper, ImageWrapper, Image } from "./styled.js";
+import plant1 from "./smallPlant1.jpg";
+import plant2 from "./smallPlant2.jpg";
+import plant3 from "./smallPlant3.jpg";
 
 const Introduction = () => {
     return (
-        <Section>
+        <SectionIntro>
             <Header>Indoor Plant Cultivation at Home</Header>
             <Container>
                 <Wrapper>
@@ -36,22 +33,11 @@ const Introduction = () => {
                 </Wrapper>
                 <ImageWrapper>
                     <Image photoOne src={plant1} alt="plant photo1" />
-                    <Image photoTwo src={plant2} alt="plant photo2" />
                     <Image photoThree src={plant3} alt="plant photo3" />
+                    <Image photoTwo src={plant2} alt="plant photo2" />
                 </ImageWrapper>
             </Container>
-            <ArticleWrapper>
-                {data.map(({ id, title, text, icon }) => (
-                    <Article key={id}>
-                        <IconSpan>{icon}</IconSpan>
-                        <Header small>{title}</Header>
-                        <Paragraph hiddenCard>{text}</Paragraph>
-                        <ButtonLink to="/products">products</ButtonLink>
-                    </Article>
-                ))}
-            </ArticleWrapper>
-        </Section>
-
+        </SectionIntro>
     )
 }
 
