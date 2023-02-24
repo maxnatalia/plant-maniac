@@ -4,15 +4,18 @@ import Logo from "../Logo";
 import { BsFacebook } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
+import { links } from "../utils/linksData";
 
 const Footer = () => {
     return (
         <StyledFooter>
             <Wrapper>
                 <Container items>
-                    <Item>contact</Item>
-                    <Item>about</Item>
-                    <Item>blog & tips</Item>
+                    {links.map(({ id, path, text }) => {
+                        return <Item key={id} to={path}>
+                            {text}
+                        </Item>
+                    })}
                 </Container>
                 <Container>
                     <Logo />
