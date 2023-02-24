@@ -14,4 +14,9 @@ export const links = [
         path: "/about",
         text: "about",
     },
+    {
+        id: 4,
+        path: "/blog",
+        text: "blog & tips",
+    },
 ]
